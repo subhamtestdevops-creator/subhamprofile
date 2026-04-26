@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Resume</title>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<canvas id="mesh"></canvas>
+
+<div class="page-wrap">
+  <header id="header"></header>
+  <nav id="nav"></nav>
+  <main id="main"></main>
+  <footer id="footer"></footer>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// Load data.json then render everything
+// ─────────────────────────────────────────────
+fetch('data.json')
+  .then(r => r.json())
+  .then(data => {
+    renderHead(data);
+    renderHeader(data.personal);
+    renderNav();
+    renderSummary(data.summary);
+    renderExperience(data.experience);
+    renderSkills(data.skills);
+    renderEducation(data.education);
+    renderCertifications(data.certifications);
+    renderFooter(data.personal, data.meta);
+    initMesh();
+    initScrollReveal();
+    initSmoothNav();
+  })
+  .catch(err => {
+    document.body.innerHTML = `<div style="color:#ff4d6d;font-family:monospace;padding:40px">
+      <h2>⚠ Could not load data.json</h2>
+      <p>Make sure data.json is in the same folder as this HTML file.</p>
+      <pre>${err}</pre>
+    </div>`;
+  });
+
+// ─────────────────────────────────────────────
+// Renderers
+// ─────────────────────────────────────────────
+
+function renderHead({ name, title }) {
+  document.getElementById('page-title').textContent = `${name} — ${title}`;
+}
+
+function renderHeader({ name, title, tagline, phone, email, linkedin, location }) {
+  document.getElementById('header').innerHTML = `
+    <div class="header-badge"><span>SYS://</span> PROFILE LOADED <span>//</span> ACTIVE</div>
+    <h1>${name.toUpperCase()}</h1>
+    <p class="title-role">${title} &nbsp;·&nbsp; ${tagline}</p>
+    <div class="contact-row">
+      <a href="tel:${phone.replace(/\s+/g,'')}" class="contact-item">
+        <span class="contact-icon">◎</span> ${phone}
+      </a>
+      <a href="mailto:${email}" class="contact-item">
+        <span class="contact-icon">◎</span> ${email}
+      </a>
+      <a href="${linkedin}" target="_blank" class="contact-item">
+        <span class="contact-icon">◎</span> ${linkedin.replace('https://www.', '')}
+      </a>
+      <span class="contact-item">
+        <span class="contact-icon">◎</span> ${location}
+      </span>
+    </div>`;
+}
+
+function renderNav() {
+  const links = [
+    { href: '#summary',        label: 'Summary' },
+    { href: '#experience',     label: 'Experience' },
+    { href: '#skills',         label: 'Skills' },
+    { href: '#education',      label: 'Education' },
+    { href: '#certifications', label: 'Certifications' },
+  ];
+  document.getElementById('nav').innerHTML =
+    links.map(l => `<a href="${l.href}">${l.label}</a>`).join('');
+}
+
+function renderSummary({ stats, paragraphs }) {
+  const statsHTML = stats.map(s => `
+    <div class="stat-box">
+      <span class="stat-number">${s.value}</span>
+      <span class="stat-label">${s.label}</span>
+    </div>`).join('');
+
+  const paraHTML = paragraphs.join('<br><br>');
+
+  appendSection('main', 'summary', '01', 'Overview', `
+    <div class="summary-grid">${statsHTML}</div>
+    <div class="card"><p class="summary-text">${paraHTML}</p></div>`);
+}
+
+function renderExperience(jobs) {
+  const cardsHTML = jobs.map(job => `
+    <div class="exp-card">
+      <div class="exp-meta">
+        <div>
+          <div class="exp-company">${job.company.toUpperCase()}</div>
+          <div class="exp-role">${job.role}</div>
+        </div>
+        <div class="exp-period">${job.period}</div>
+      </div>
+      <div class="exp-location">◈ ${job.location}</div>
+      <ul class="exp-points">
+        ${job.points.map(p => `<li>${p}</li>`).join('')}
+      </ul>
+    </div>`).join('');
+
+  appendSection('main', 'experience', '02', 'Experience',
+    `<div class="exp-list">${cardsHTML}</div>`);
+}
+
+function renderSkills(groups) {
+  const groupsHTML = groups.map(g => `
+    <div class="skill-group">
+      <div class="skill-group-title">${g.category}</div>
+      <div class="skill-tags">
+        ${g.items.map(i => `<span class="skill-tag">${i}</span>`).join('')}
+      </div>
+    </div>`).join('');
+
+  appendSection('main', 'skills', '03', 'Technical Stack',
+    `<div class="skills-grid">${groupsHTML}</div>`);
+}
+
+function renderEducation(entries) {
+  const cardsHTML = entries.map(e => `
+    <div class="edu-card">
+      <div class="edu-degree">${e.degree}</div>
+      <div class="edu-institution">${e.institution}</div>
+      <div class="edu-year">${e.year} &nbsp;·&nbsp; ${e.location}</div>
+    </div>`).join('');
+
+  appendSection('main', 'education', '04', 'Education',
+    `<div class="edu-grid">${cardsHTML}</div>`);
+}
+
+function renderCertifications(certs) {
+  const badgesHTML = certs.map(c =>
+    `<span class="cert-badge">${c.title}</span>`).join('');
+
+  appendSection('main', 'certifications', '05', 'Certifications',
+    `<div class="card"><div class="cert-badges">${badgesHTML}</div></div>`);
+}
+
+function renderFooter({ name }, { version }) {
+  document.getElementById('footer').innerHTML =
+    `<p class="footer-text">${name.toUpperCase()} &nbsp;·&nbsp; RESUME v${version} &nbsp;·&nbsp; ALL SYSTEMS NOMINAL</p>`;
+}
+
+// ─────────────────────────────────────────────
+// Helper: append a section to a container
+// ─────────────────────────────────────────────
+function appendSection(containerId, id, num, title, bodyHTML) {
+  const sec = document.createElement('section');
+  sec.id = id;
+  sec.className = 'reveal';
+  sec.innerHTML = `
+    <div class="section-head">
+      <span class="section-number">${num}</span>
+      <h2>${title}</h2>
+      <div class="section-line"></div>
+    </div>
+    ${bodyHTML}`;
+  document.getElementById(containerId).appendChild(sec);
+}
+
+// ─────────────────────────────────────────────
+// Animated mesh canvas
+// ─────────────────────────────────────────────
+function initMesh() {
+  const canvas = document.getElementById('mesh');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function Node() {
+    this.x  = Math.random() * W;
+    this.y  = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.r  = Math.random() * 2 + 1;
+  }
+
+  const count = window.innerWidth < 600 ? 35 : 70;
+  for (let i = 0; i < count; i++) nodes.push(new Node());
+
+  const COLORS = ['#00f5ff', '#b44fff', '#1e90ff', '#39ff14'];
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    });
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(0,245,255,${0.12 * (1 - dist / 150)})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach((n, i) => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = COLORS[i % COLORS.length];
+      ctx.globalAlpha = 0.6;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+function initScrollReveal() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+// ─────────────────────────────────────────────
+// Smooth scroll for nav
+// ─────────────────────────────────────────────
+function initSmoothNav() {
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+</script>
+</body>
+</html>

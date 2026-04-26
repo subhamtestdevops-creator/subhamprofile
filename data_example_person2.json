@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "version": "2026",
+    "last_updated": "2026-04-26"
+  },
+
+  "personal": {
+    "name": "Priya Sharma",
+    "title": "Senior Frontend Engineer",
+    "tagline": "React · TypeScript · Design Systems",
+    "phone": "+91 9876543210",
+    "email": "priya.sharma@example.com",
+    "linkedin": "https://www.linkedin.com/in/priyasharma",
+    "location": "Bengaluru, Karnataka, India"
+  },
+
+  "summary": {
+    "stats": [
+      { "value": "6+", "label": "Years Experience" },
+      { "value": "4",  "label": "Companies" },
+      { "value": "12", "label": "Products Shipped" }
+    ],
+    "paragraphs": [
+      "Senior Frontend Engineer with 6+ years building high-performance web applications and design systems at scale. Deep expertise in React, TypeScript, and modern CSS — with a strong eye for UI/UX and accessibility.",
+      "Previously led frontend architecture at a Series B SaaS startup, reducing bundle size by 40% and improving Lighthouse scores across the board. Comfortable working closely with design, product, and backend teams to deliver polished, production-grade experiences."
+    ]
+  },
+
+  "experience": [
+    {
+      "company": "Razorpay",
+      "role": "Senior Frontend Engineer",
+      "period": "Jan 2024 — Present",
+      "location": "Bengaluru, Karnataka, India",
+      "points": [
+        "Lead development of the merchant dashboard, serving 500K+ businesses with complex data visualizations and real-time payment analytics.",
+        "Architect and maintain a shared component library used across 8 product teams, improving consistency and reducing duplicate code.",
+        "Collaborate with design and product teams to define component APIs and interaction patterns.",
+        "Mentor 3 junior engineers through code reviews, pair programming, and technical design sessions."
+      ]
+    },
+    {
+      "company": "Groww",
+      "role": "Frontend Engineer II",
+      "period": "Mar 2021 — Dec 2023",
+      "location": "Bengaluru, Karnataka, India",
+      "points": [
+        "Built and shipped the mutual funds discovery and investment flow, contributing to a 25% increase in first-time investors.",
+        "Implemented micro-frontend architecture using Module Federation, enabling independent deployments across squads.",
+        "Optimized core web vitals — improved LCP by 35% and reduced CLS to near-zero on key landing pages.",
+        "Wrote end-to-end and unit tests using Cypress and Jest, achieving 80%+ coverage on critical flows."
+      ]
+    },
+    {
+      "company": "HasGeek",
+      "role": "Frontend Developer",
+      "period": "Jun 2019 — Feb 2021",
+      "location": "Bengaluru, Karnataka, India",
+      "points": [
+        "Developed event platform features including ticketing, scheduling, and speaker management used by 50K+ attendees annually.",
+        "Migrated legacy jQuery codebase to Vue.js, improving maintainability and developer experience.",
+        "Collaborated directly with founders on product design and user research."
+      ]
+    },
+    {
+      "company": "Internshala",
+      "role": "Frontend Intern",
+      "period": "Jan 2019 — May 2019",
+      "location": "Remote",
+      "points": [
+        "Built responsive UI components for the student onboarding flow, improving mobile conversion by 18%.",
+        "Fixed cross-browser compatibility issues and improved accessibility across key pages."
+      ]
+    }
+  ],
+
+  "skills": [
+    {
+      "category": "Languages & Frameworks",
+      "items": ["TypeScript", "JavaScript", "React", "Next.js", "Vue.js", "HTML5", "CSS3"]
+    },
+    {
+      "category": "Tooling & Build",
+      "items": ["Webpack", "Vite", "Turbopack", "ESLint", "Prettier", "Storybook"]
+    },
+    {
+      "category": "Testing",
+      "items": ["Jest", "React Testing Library", "Cypress", "Playwright", "Vitest"]
+    },
+    {
+      "category": "Design & Collaboration",
+      "items": ["Figma", "Design Systems", "Accessibility (WCAG)", "Tailwind CSS", "CSS Modules"]
+    },
+    {
+      "category": "DevOps & Cloud",
+      "items": ["GitHub Actions", "Vercel", "AWS S3", "CloudFront", "Docker"]
+    },
+    {
+      "category": "Productivity",
+      "items": ["Jira", "Linear", "Notion", "Agile", "Code Review"]
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "B.E. — Computer Science",
+      "institution": "R.V. College of Engineering, Bengaluru",
+      "year": "2015 – 2019",
+      "location": "Bengaluru, Karnataka"
+    }
+  ],
+
+  "certifications": [
+    { "title": "AWS Certified Cloud Practitioner" },
+    { "title": "Meta Frontend Developer Certificate" }
+  ]
+}

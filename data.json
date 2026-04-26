@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "version": "2026",
+    "last_updated": "2026-04-26"
+  },
+
+  "personal": {
+    "name": "Subham Saha",
+    "title": "Implementation Analyst II",
+    "tagline": "Tech Integrations · Fintech",
+    "phone": "+91 9040116349",
+    "email": "subhamsaha2905@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/ss2905",
+    "location": "Hyderabad, Telangana, India"
+  },
+
+  "summary": {
+    "stats": [
+      { "value": "5+", "label": "Years Experience" },
+      { "value": "5",  "label": "Companies" },
+      { "value": "∞",  "label": "Problems Solved" }
+    ],
+    "paragraphs": [
+      "Implementation Analyst II at Zeta with a strong blend of technical expertise and client-facing experience across fintech, IoT, and enterprise integration environments. Specializes in partner onboarding, API/SDK integration, incident management, and technical support for banking modules — guiding financial institutions through seamless integrations and resolving complex configuration challenges.",
+      "Previously engineered smart parking deployments at GetMyParking, leveraging ANPR/LPR, microservices architecture, and cloud infrastructure. Background spans Python, Shell scripting, SQL, Docker, Linux, and monitoring tools including Grafana, OpenSearch, Kibana, and CloudWatch — bridging the gap between product, engineering, and customer success."
+    ]
+  },
+
+  "experience": [
+    {
+      "company": "Zeta",
+      "role": "Implementation Analyst II",
+      "period": "Mar 2025 — Present",
+      "location": "Hyderabad, Telangana, India",
+      "points": [
+        "Lead end-to-end partner onboarding processes, guiding banks and financial institutions through integration of banking modules with platform standards compliance.",
+        "Provide hands-on technical guidance for REST API and SDK integrations; troubleshoot complex configuration and implementation issues.",
+        "Liaise cross-functionally with Engineering, QA, and Product teams to manage change requests and deliver customized solutions.",
+        "Oversee incident handling and coordinate across teams to ensure prompt resolutions and continuous operational stability."
+      ]
+    },
+    {
+      "company": "Get My Parking",
+      "role": "Deployment Engineer",
+      "period": "Dec 2021 — Mar 2025",
+      "location": "Bangalore Urban, Karnataka, India",
+      "points": [
+        "Deployed smart parking solutions with ANPR/LPR, ensuring seamless integration with client infrastructure and optimizing system performance.",
+        "Utilized Python, shell scripting, Docker, and Linux for automation and system orchestration across microservices architecture.",
+        "Leveraged AWS services (SNS, S3, ECS, EC2, SES) for debugging and daily operational tasks.",
+        "Implemented real-time monitoring using Grafana, OpenSearch, CloudWatch, and Kibana; utilized Postman for API testing, validation, and automation.",
+        "Managed incident handling from root cause analysis to resolution; coordinated sprints via Jira."
+      ]
+    },
+    {
+      "company": "ZKTeco Biometrics",
+      "role": "Technical Support Engineer",
+      "period": "Nov 2020 — Dec 2021",
+      "location": "Bengaluru, Karnataka, India",
+      "points": [
+        "Tested device compatibility and managed software-hardware connection processes for biometric products.",
+        "Resolved client issues related to software, collected requirements for hardware and software customizations.",
+        "Coordinated with QA and development teams; performed rigorous software and hardware testing post-development and deployed solutions in client environments."
+      ]
+    },
+    {
+      "company": "Vivo Mobile India",
+      "role": "Warehouse Store Keeper",
+      "period": "May 2018 — Feb 2019",
+      "location": "Greater Noida, Uttar Pradesh, India",
+      "points": [
+        "Managed inventory flow using WMS and ERP systems, ensuring accurate tracking and efficient warehouse operations."
+      ]
+    },
+    {
+      "company": "Reliance Retail",
+      "role": "Intern",
+      "period": "Jun 2017 — Aug 2017",
+      "location": "Bhubaneswar, Odisha, India",
+      "points": [
+        "Gained hands-on exposure to corporate operations and daily workflows in one of India's largest retail chains.",
+        "Learned complaint resolution processes across Fresh, Digital, Footprints, and Jewellery verticals.",
+        "Followed and documented security guidelines including preventive maintenance, weekly deep cleaning, pest control, and thermographic testing."
+      ]
+    }
+  ],
+
+  "skills": [
+    {
+      "category": "Languages & Scripting",
+      "items": ["Python", "Shell Scripting", "SQL", "PostgreSQL", "MySQL"]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": ["Docker", "Linux", "AWS EC2", "AWS S3", "AWS ECS", "AWS SNS", "AWS SES"]
+    },
+    {
+      "category": "Monitoring & Observability",
+      "items": ["Grafana", "Kibana", "OpenSearch", "CloudWatch", "APM", "CleverTap"]
+    },
+    {
+      "category": "Integration & APIs",
+      "items": ["REST APIs", "SDK Integration", "Postman", "API Testing", "Microservices"]
+    },
+    {
+      "category": "Project & Incident Mgmt",
+      "items": ["Jira", "FreshDesk", "Incident Handling", "Root Cause Analysis", "Agile"]
+    },
+    {
+      "category": "Hardware & Industrial",
+      "items": ["PLC", "SCADA", "DCS", "HMI", "ANPR/LPR", "Arduino", "ARM", "Biometrics"]
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "B.Tech — Electrical Engineering",
+      "institution": "Gandhi Institute for Education and Technology (GIET), Khurda",
+      "year": "2014 – 2018",
+      "location": "Bhubaneswar, Odisha"
+    },
+    {
+      "degree": "Master Certificate — Automation & Process Control",
+      "institution": "Central Tool Room and Training Centre (CTTC)",
+      "year": "2019 – 2020",
+      "location": "Bhubaneswar, Odisha"
+    }
+  ],
+
+  "certifications": [
+    {
+      "title": "SQL — Certified"
+    }
+  ]
+}
