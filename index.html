@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="page-title">Resume</title>
+<title>Resume</title>
 <link rel="stylesheet" href="theme.css">
 </head>
 <body>
@@ -50,7 +50,7 @@ fetch('data.json')
 // ─────────────────────────────────────────────
 
 function renderHead({ name, title }) {
-  document.getElementById('page-title').textContent = `${name} — ${title}`;
+  if (name && title) document.title = `${name} — ${title}`;
 }
 
 function renderHeader({ name, title, tagline, phone, email, linkedin, location }) {
